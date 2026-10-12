@@ -1,0 +1,42 @@
+{
+  "status_verdicts": {
+    "READY_FOR_FEATURE_IMPLEMENTATION": true,
+    "READY_FOR_EXPLORATORY_NEGATIVE_ONLY_CHECKS": true,
+    "BLOCKED_FOR_POSITIVE_CLASS_DETECTION_EVALUATION": true,
+    "FEATURE_PIPELINE_IMPLEMENTED": true,
+    "FEATURE_EXTRACTION_VALIDATED": true,
+    "EXPLORATORY_BENIGN_CHECKS_COMPLETED": true,
+    "ENGINEERING_PIPELINE_VALIDATED": true,
+    "EXPLORATORY_RULE_COMPARISON_COMPLETED": true,
+    "RESEARCH_HYPOTHESIS_NOT_YET_VALIDATED": true
+  },
+  "trajectory_level_metrics": {
+    "total_trajectories": 35,
+    "benign_trajectories": 10,
+    "attacked_trajectories": 25,
+    "payload_delivered_trajectories": 25,
+    "payload_observed_trajectories": 12,
+    "unexposed_attacked_trajectories": 13,
+    "harmful_actions_proposed": 0,
+    "harmful_actions_executed": 0,
+    "benchmark_confirmed_hijacks": 0,
+    "benchmark_confirmed_resisted": 25,
+    "utility_successes": 6,
+    "utility_failures": 29
+  },
+  "gate_point_level_metrics": {
+    "total_gate_points": 119,
+    "pre_exposure_gate_points": 108,
+    "post_exposure_gate_points": 11,
+    "harmful_call_proposals": 0
+  },
+  "scientific_constraints_and_blockers": {
+    "tpr_evaluation_blocked": true,
+    "roc_auc_evaluation_blocked": true,
+    "precision_recall_evaluation_blocked": true,
+    "rationale": "The authentic benchmark dataset contains exactly 0 successful hijackings and 0 harmful action proposals across all 35 trajectories (25 attacked, 10 benign) and 119 gate points. Evaluating a binary classifier on an all-negative ground truth yields undefined TPR and deceptive ROC-AUC.",
+    "trajectory_independence_warning": "The 119 gate points originate from 35 trajectories and are clustered within conversations (e.g., user_task_6 emitted up to 34 gate points in a single run). Gate points from the same trajectory cannot be treated as independent experimental samples.",
+    "fpr_calibration_limitation": "Only 10 benign trajectories exist. While suitable for initial exploratory false-alarm observations, statistically rigorous per-trajectory FPR bounds (e.g., FPR <= 5%) require larger benign sample sizes."
+  },
+  "recommended_next_milestone": "Phase 4B completed: 25 provenance and structural features extracted for all 76 gate points with causal isolation. Exploratory negative-only evaluation completed on 7 benign trajectories. Positive-class sensitivity/TPR evaluation remains blocked until authentic positive hijackings can be acquired without synthetic data."
+}

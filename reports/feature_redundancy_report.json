@@ -1,0 +1,40 @@
+{
+  "total_gate_points": 76,
+  "total_features": 25,
+  "constant_features": [
+    "has_type_mismatches",
+    "is_call_id_valid",
+    "is_schema_available",
+    "is_tool_name_known",
+    "type_mismatch_count"
+  ],
+  "near_constant_features": [],
+  "identical_feature_pairs": [
+    [
+      "argument_token_overlap_fraction",
+      "max_single_observation_token_overlap"
+    ],
+    [
+      "has_unexpected_argument_keys",
+      "unexpected_argument_key_count"
+    ]
+  ],
+  "highly_correlated_pairs": [
+    [
+      "distinct_prior_tool_source_count",
+      "prior_tool_observation_count",
+      0.9914
+    ],
+    [
+      "prior_observation_char_length",
+      "prior_observation_token_count",
+      0.9653
+    ]
+  ],
+  "provenance_vs_structural_correlation": [],
+  "recommendations": [
+    "Constant features (5): ['has_type_mismatches', 'is_call_id_valid', 'is_schema_available', 'is_tool_name_known', 'type_mismatch_count']. These reflect high baseline compliance in the current corpus but should be retained for future tools/adversarial checks.",
+    "Identical feature pairs (2): [('argument_token_overlap_fraction', 'max_single_observation_token_overlap'), ('has_unexpected_argument_keys', 'unexpected_argument_key_count')]. In single-observation contexts, max_single_observation_token_overlap equals argument_token_overlap_fraction.",
+    "Maintain current 25-feature schema v1.0.0 for stability; defer dimensionality reduction until positive cases provide empirical feature importances."
+  ]
+}

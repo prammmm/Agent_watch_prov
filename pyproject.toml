@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentwatch"
+version = "0.1.0"
+description = "Lightweight provenance and structural monitoring for indirect prompt-injection hijacking detection"
+authors = [
+    { name = "Param Bapu", email = "parambapu33@gmail.com" }
+]
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "torch>=2.2.0",
+    "pydantic>=2.7.1",
+    "deepdiff>=8.6.1",
+    "rich>=13.7.1",
+    "pyyaml>=6.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+benchmark = [
+    "agentdojo==0.1.35",
+    "openai>=1.59.7",
+    "anthropic>=0.47.0",
+    "google-genai>=1.15.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
